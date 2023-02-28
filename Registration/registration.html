@@ -1,0 +1,84 @@
+<template>
+    <form class="container" onsubmit={handleSubmit}>
+        <h4>Registration Form</h4>
+        <div class="form-fields">
+            <div class="fName field">
+                <label for="fName"><span class="requiredCharacter">*</span>First Name</label>
+                <input type="text" data-id="fName" name="fName" value={firstname}>
+                <p class="errorMsg">{fNameErrorMsg}</p>
+            </div>
+            <div class="lName field">
+                <label for="lName"> <span class="requiredCharacter">*</span>Last Name</label>
+                <input type="text" id="lName" name="lName" value={lastname}>
+                <p class="errorMsg">{lNameErrorMsg}</p>
+            </div>
+            <div class="email field">
+                <label for="email"> <span class="requiredCharacter">*</span>Email</label>
+                <input type="email" id="email" name="email" value={Email}>
+                <p class="errorMsg">{lNameErrorMsg}</p>
+            </div>
+            <div class="country field">
+                <label for="country"> <span class="requiredCharacter">*</span>Country</label>
+                <select name="country" id="country" value={Country} onchange={handleChange}>
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="Maldives">Maldives</option>
+                    <option value="Mauritius">Mauritius</option>
+                    <option value="Nepal">Nepal</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="field">
+                <template if:true={othersField}>
+                    <div class="otherField">
+                        <label for="otherCountry"><span class="requiredCharacter">*</span>Enter Other Country Name</label>
+                        <input type="text" id="otherCountry" name="otherCountry" value={otherCountry}>
+                    </div>
+                </template>
+            </div>
+            <div class="phone field">
+                <label for="phone"> <span class="requiredCharacter">*</span>Phone</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{9}" value={Phone}>
+                <p class="errorMsg">{phoneErrorMsg}</p>
+            </div>
+        </div>
+        <template lwc:if={showSubmitButton}>
+            <button class="submit" type="submit" id="submit" name="submit">Submit</button>
+        </template>
+        <template lwc:if={showSaveButton}>
+            <button class="save" type="submit" id="save" name="save">Save</button>
+        </template>
+
+    </form>
+
+    <template lwc:if={showTable}>
+        <table>
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <template for:each={arr} for:item="ele">
+                        <tr key={ele.id}>
+                            <td key={ele.id} class="firstName">{ele.firstname}</td>
+                            <td key={ele.id}>{ele.lastname}</td>
+                            <td key={ele.id}>{ele.Email}</td>
+                            <td key={ele.id}>{ele.Country}</td>
+                            <td key={ele.id}>{ele.Phone}</td>
+                            <td key={ele.id}><button class="edit" data-id={ele.id} name="edit" value={ele.id} onclick={handleEditButton}>Edit</button></td>
+                            <td key={ele.id}><button class="delete" data-id={ele.id} name="delete"  onclick={handleDeleteButton}>Delete</button></td>
+                        </tr>
+                    </template>
+            </tbody>
+        </table>
+    </template>
+</template>

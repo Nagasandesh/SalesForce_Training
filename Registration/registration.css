@@ -1,0 +1,79 @@
+.body{
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+h4{
+    font-size: large;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+}
+
+
+.form-fields{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+
+.container .field{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    
+}
+
+label{
+    font-size: small;
+    font-weight: 400;
+    
+}
+
+.errorMsg, .requiredCharacter{
+    color: red;
+}
+
+input,select{
+    display: inline-block;
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+.otherField{
+    display: inline-block;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+.submit, .save, .edit{
+    background-color:rgb(43, 144, 226);
+    color: white;
+    border: none;
+    font-size: medium;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.delete{
+    background-color:red;
+    color: white;
+    border: none;
+    font-size: medium;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+  }
+  
+  tr:hover {background-color: #D6EEEE;}
